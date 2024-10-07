@@ -18,9 +18,6 @@ var ConnectionDB = $"server={dbHost}; port={dbPort}; database={dbDatabase}; uid=
 builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseMySql(ConnectionDB, ServerVersion.Parse("8.0.20-mysql")));
 
 
-
-
-
 // Add services to the container.
 
 builder.Services.AddControllers();

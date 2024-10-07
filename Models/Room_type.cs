@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Reserva.Models;
-[Table("Room Type")]
+[Table("Room Types")]
 public class Room_type
 {
     [Key]
