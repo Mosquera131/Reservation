@@ -23,6 +23,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseMySql(
 
 // Add services to the container.
 builder.Services.AddScoped<IRoomRepository, RoomServices>();
+builder.Services.AddScoped<IGuestRepository, GuestService>();
+builder.Services.AddScoped<IBookingRepository, BookingServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

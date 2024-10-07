@@ -16,29 +16,49 @@ public partial class RoomController
         Summary = "Retrieve the Rooms that are avalible",
         Description = "Gets  the Book  that has been search for its availability "
         )]
-        [SwaggerResponse(200, "Return a list of all the rooms available ")]
-        [SwaggerResponse(404, "Rooms not found")]
-        [SwaggerResponse(500, "An Internal server error occurred.")]
+    [SwaggerResponse(200, "Return a list of all the rooms available ")]
+    [SwaggerResponse(404, "Rooms not found")]
+    [SwaggerResponse(500, "An Internal server error occurred.")]
     public async Task<IActionResult> GetAvailableRooms()
     {
         var availableRooms = await _IRoom.GetAvailableRoomsAsync();
         return Ok(availableRooms);
     }
 
-[HttpGet("Room Type")]
+    [HttpGet("Room Type")]
     [SwaggerOperation(
-        Summary = "Retrieve the Rooms that are avalible",
-        Description = "Gets  the Book  that has been search for its availability "
-        )]
-        [SwaggerResponse(200, "Return a list of all the rooms available ")]
-        [SwaggerResponse(404, "Rooms not found")]
-        [SwaggerResponse(500, "An Internal server error occurred.")]
+            Summary = "Retrieve All The Room Types",
+            Description = "Gets  all the Room Type that are avaliable  "
+            )]
+    [SwaggerResponse(200, "Return a list of all the rooms available ")]
+    [SwaggerResponse(404, "Rooms not found")]
+    [SwaggerResponse(500, "An Internal server error occurred.")]
 
-        public async Task <IActionResult> RoomTypes()
+    public async Task<IActionResult> RoomTypes()
+    {
+        var RoomTypes = await _IRoom.RoomTypesAsync();
+        return Ok(RoomTypes);
+    }
+
+    [HttpGet("Romm by Id")]
+    [SwaggerOperation(
+            Summary = "Retrieve The room by its Id",
+            Description = "Gets  the Room Information of the room that has been search by its Id  "
+            )]
+    [SwaggerResponse(200, "Return the room room  ")]
+    [SwaggerResponse(404, "Room not found")]
+    [SwaggerResponse(500, "An Internal server error occurred.")]
+
+    public async Task<ActionResult<Room>> GetById(int id)
+    {
+        var Roomsearch = await _IRoom.GetById(id);
+        if (Roomsearch == null)
         {
-            var RoomTypes= await _IRoom.RoomTypesAsync();
-            return Ok(RoomTypes);
+            return NotFound();
         }
+        return Roomsearch;
+    }
+
 
 
 }

@@ -33,5 +33,10 @@ public class RoomServices : IRoomRepository
     {
         return await _context.Room_Types.ToListAsync();
     }
+
+    public async Task<Room> GetById(int id)
+    {
+        return await _context.Rooms.FindAsync(id);
+    }
 }
 

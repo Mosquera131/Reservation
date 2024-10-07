@@ -12,6 +12,8 @@ namespace Reserva.Repositories;
         Task<List<Room>> GetAvailableRoomsAsync();
 
         Task<List<Room_type>> RoomTypesAsync();
+
+        Task<Room> GetById (int id);
     }
 
     
