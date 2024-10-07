@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Reserva.Models;
+using Reserva.Seeders;
 
 namespace Reserva.Data;
 
@@ -16,5 +17,15 @@ public class ApplicationDbContext : DbContext
     public DbSet<Room> Rooms { get; set; }
 
 
-public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base (options){}
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        RoomSeeders.Seeder(modelBuilder);
+        RoomTypeSeeder.Seeder(modelBuilder);
+
+
+    }
+
 }
