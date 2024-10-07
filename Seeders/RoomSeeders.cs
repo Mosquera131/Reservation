@@ -31,16 +31,16 @@ public class RoomSeeders
                     maxOccupancy = 1;
                     break;
                 case 2: // Habitación Doble
-                    price = 100;
+                    price = 80;
                     maxOccupancy = 2;
                     break;
                 case 3: // Suite
-                    price = 200;
-                    maxOccupancy = 4;
+                    price = 150;
+                    maxOccupancy = 2;
                     break;
                 case 4: // Habitación Familiar
-                    price = 150;
-                    maxOccupancy = 5;
+                    price = 200;
+                    maxOccupancy = 4;
                     break;
                 default:
                     price = 0;

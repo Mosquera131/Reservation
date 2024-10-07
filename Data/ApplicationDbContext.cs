@@ -25,7 +25,6 @@ public class ApplicationDbContext : DbContext
         RoomSeeders.Seeder(modelBuilder);
         RoomTypeSeeder.Seeder(modelBuilder);
 
-
     }
 
 }

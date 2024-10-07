@@ -1,6 +1,8 @@
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Reserva.Data;
+using Reserva.Repositories;
+using Reserva.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseMySql(
 
 
 // Add services to the container.
+builder.Services.AddScoped<IRoomRepository, RoomServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
