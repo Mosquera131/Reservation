@@ -27,5 +27,11 @@ public class RoomServices : IRoomRepository
                              .Where(room => room.Availability == true) // Filtrar habitaciones disponibles
                             .ToListAsync();
     }
+
+
+    public async Task<List<Room_type>>RoomTypesAsync()
+    {
+        return await _context.Room_Types.ToListAsync();
+    }
 }
 

@@ -10,7 +10,11 @@ namespace Reserva.Repositories;
     public interface IRoomRepository
     {
         Task<List<Room>> GetAvailableRoomsAsync();
+
+        Task<List<Room_type>> RoomTypesAsync();
     }
+
+    
 
 
     
