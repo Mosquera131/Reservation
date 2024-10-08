@@ -13,10 +13,10 @@ public partial class BookingController
 {
     [HttpPost]
     [SwaggerOperation(
-Summary = "Create Aguest",
-Description = "Register a Guest in the database."
+Summary = "Create Booking",
+Description = "Register a Booking in the database."
 )]
-    [SwaggerResponse(200, "Return the Guest that has been created.")]
+    [SwaggerResponse(200, "Return the Bookin that has been created.")]
     [SwaggerResponse(500, "An Internal server error occurred.")]
     [HttpPost]
 
