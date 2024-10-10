@@ -20,31 +20,34 @@ Description = "Register a Booking in the database."
     [SwaggerResponse(500, "An Internal server error occurred.")]
     [HttpPost]
 
-    public async Task<ActionResult<Booking>> Create(BookingDTO inputGuest)
+    public async Task<ActionResult<Booking>> Create(BookingDTO inputBooking)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
+        // deberian haber verificaciones de que si ya exite un cuarto, un empleado y huespeded.. Verificar si la sala (Room) existe
+
         // var passwordh = _Booking.HashPassword(inputUser.Password);
 
         var Booking21 = new Booking
         {
-            Start_date = inputGuest.Start_date,
+            Start_date = inputBooking.Start_date,
 
-            End_date = inputGuest.End_date,
+            End_date = inputBooking.End_date,
 
-            Total_cost = inputGuest.Total_cost,
+            Total_cost = inputBooking.Total_cost,
 
-            Room_id = inputGuest.Room_id,
+            Room_id = inputBooking.Room_id,
 
-            Guest_id = inputGuest.Guest_id,
+            Guest_id = inputBooking.Guest_id,
 
-            Employee_id = inputGuest.Employee_id
+            Employee_id = inputBooking.Employee_id
 
         };
 
         await _Booking.Add(Booking21);
+
 
         return Ok(Booking21);
     }

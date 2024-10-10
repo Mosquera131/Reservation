@@ -18,22 +18,25 @@ public class BookingServices : IBookingRepository
         _context = context;
     }
 
-
-    public Task Add(Booking booking)
+    public async Task Add(Booking booking)
     {
-
-        return _context.Bookings.ToListAsync();
-
+        _context.Bookings.Add(booking);
+        await _context.SaveChangesAsync();
 
     }
 
-
-    public async Task<Booking> GetBooking(int Id)
+    public async Task<IEnumerable<Booking>> GetAllBooking()
     {
-        var BookingToFind = await _context.Bookings.FindAsync(Id);
+        var AllBookings = await _context.Bookings.ToListAsync();
+        return AllBookings;
+    }
+
+    public async Task<Booking> GetBooking(int id)
+    {
+        var BookingToFind = await _context.Bookings.FindAsync();
         return (BookingToFind);
-
     }
+
     public async Task<bool> Delete(int Id)
     {
         var BookingFound = await GetBooking(Id);
@@ -45,6 +48,8 @@ public class BookingServices : IBookingRepository
             return true;
         }
         return false;
-
     }
+
+
+
 }

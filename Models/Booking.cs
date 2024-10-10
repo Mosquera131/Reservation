@@ -41,7 +41,7 @@ public class Booking
     [ForeignKey("Guest_id")]
     public Guest Guest { get; set; }
 
-    [ForeignKey("Employeed_id")]
+    [ForeignKey("Employee_id")]
     public Employee Employee { get; set; }
 
 }

@@ -11,7 +11,7 @@ namespace Reserva.Repositories;
 public interface IBookingRepository
 {
     Task Add(Booking booking);
-
-    Task<Booking> GetBooking(int Id);
+    Task <IEnumerable<Booking>> GetAllBooking();
     Task <bool> Delete(int Id);
+    Task<Booking> GetBooking(int Id);
 }
